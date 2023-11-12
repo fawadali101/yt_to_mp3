@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Converter, Navbar, About, Faq, Blogs, Footer } from './components';
+import { Box } from '@mui/material';
+import './index.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Box sx={{
+      width: "85vw",
+      height: "100vh",
+      margin: "0 auto"
+    }}>
+      
+      
+      <Routes>
+        <Route path='/' element={<><Navbar/><Converter/></> }/>
+        <Route path='/about' exact element={<About/>}/>
+        <Route path='/faq' element={<Faq/>}/> 
+        <Route path='/blogs' element={<Blogs/>}/> 
+      </Routes>
+      <Footer/>
+    </Box>
+    </Router>
   );
 }
 
